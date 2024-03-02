@@ -88,7 +88,7 @@ class AABB {
     }
     collision(x, y) {
         for (const aabb2 of this.getNearTileAABB()) {
-            const overlap = this.move(x, 0).overlap(aabb2);
+            const overlap = this.move(x, y).overlap(aabb2);
             return new Vec2Result(x - overlap.x, y - overlap.y, new Vec2(x !== x - overlap.x, y !== y - overlap.y));
         }
         return new Vec2Result(x, y, new Vec2(0, 0));
@@ -122,6 +122,7 @@ class AABB {
 
 class Level {
     Data = null;
+    TIleAABB=null;
 }
 
 class Draw {
